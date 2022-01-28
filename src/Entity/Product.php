@@ -2,12 +2,29 @@
 
 namespace App\Entity;
 
+use ApiPlatform\Core\Annotation\ApiResource;
 use App\Repository\ProductRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: ProductRepository::class)]
+#[ApiResource(
+    collectionOperations: [
+        'get',
+        'post' =>[
+            'security' => 'is_granted("ROLE_ADMIN")'
+        ]
+    ],
+    itemOperations: [
+        'get',
+        'put' => [
+            'security' => 'is_granted("ROLE_ADMIN")'
+        ],
+        'delete' => [
+            'security' => 'is_granted("ROLE_ADMIN")'
+        ]],
+)]
 class Product
 {
     #[ORM\Id]
@@ -42,10 +59,14 @@ class Product
     #[ORM\ManyToOne(targetEntity: Brand::class, inversedBy: 'products')]
     private $brand;
 
+    #[ORM\ManyToMany(targetEntity: Cart::class, mappedBy: 'products')]
+    private $carts;
+
     public function __construct()
     {
         $this->subcategory = new ArrayCollection();
         $this->media = new ArrayCollection();
+        $this->carts = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -187,6 +208,33 @@ class Product
     public function setBrand(?Brand $brand): self
     {
         $this->brand = $brand;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Cart[]
+     */
+    public function getCarts(): Collection
+    {
+        return $this->carts;
+    }
+
+    public function addCart(Cart $cart): self
+    {
+        if (!$this->carts->contains($cart)) {
+            $this->carts[] = $cart;
+            $cart->addProduct($this);
+        }
+
+        return $this;
+    }
+
+    public function removeCart(Cart $cart): self
+    {
+        if ($this->carts->removeElement($cart)) {
+            $cart->removeProduct($this);
+        }
 
         return $this;
     }

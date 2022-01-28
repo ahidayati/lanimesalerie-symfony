@@ -3,7 +3,7 @@ App\Entity\Product:
     sku: '<ean13()>'
     name: '<randomElement(["Croquettes", "Friandises"])> <randomElement(["Junior", "Adulte", "Sénior"])> <randomElement(["à la volaille", "au porc", "au poulet", "à la viande", "au canard", "au poisson"])> <randomElement(["Premium", "Super Premium", "Stérilisé", "Digestion Dificile", "Peau Sensible"])>'
     price: '<randomFloat(2 10 99)>'
-    weight: '<randomNumber(1)>'
+    weight: '<randomFloat(1 1 9)>'
     description: '<paragraph(5 true)>'
     stock: '<randomNumber(3)>'
     subcategory: '<numberBetween(1, 2)>x @subcategory<randomElement(["1", "4"])>'
