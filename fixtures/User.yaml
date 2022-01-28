@@ -1,14 +1,5 @@
 App\Entity\User:
-  user1:
-    email: annisa123@mail.com
-    roles: ["ROLE_ADMIN"]
-    password: hello123
-    firstName: Annisa
-    lastName: Hidayati
-    gender: f
-    birthDate: '75%? <dateTimeBetween("1945-01-01", "-18 years")>'
-    phone: '<e164PhoneNumber()>'
-  user{2..200}:
+  user{1..200}:
     email: '<email()>'
     password: <password()>
     firstName: '<firstName()>'
