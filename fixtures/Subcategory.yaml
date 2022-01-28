@@ -1,0 +1,31 @@
+App\Entity\Subcategory:
+  subcategory1:
+    name: Nourriture pour chien
+    category: '@category1'
+  subcategory2:
+    name: Soin & hygiène pour chien
+    category: '@category1'
+  subcategory3:
+    name: Jouet pour chien
+    category: '@category1'
+  subcategory4:
+    name: Nourriture pour chat
+    category: '@category2'
+  subcategory5:
+    name: Soin & hygiène pour chat
+    category: '@category2'
+  subcategory6:
+    name: Jouet pour chat
+    category: '@category2'
+  subcategory7:
+    name: Nourriture pour oiseau
+    category: '@category3'
+  subcategory8:
+    name: Jouet pour oiseau
+    category: '@category3'
+  subcategory9:
+    name: Nourriture pour poisson
+    category: '@category4'
+  subcategory10:
+    name: Nourriture pour reptile
+    category: '@category5'

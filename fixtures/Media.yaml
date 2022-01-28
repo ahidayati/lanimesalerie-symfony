@@ -1,0 +1,4 @@
+App\Entity\Media:
+  media{1..50}:
+    imagePath: '<imageUrl(300 300 "product-image")>'
+    product: '@product*'

@@ -1,0 +1,15 @@
+App\Entity\Brand:
+  brand1:
+    name: Royal Canin
+  brand2:
+    name: Proplan
+  brand3:
+    name: Croc Pro
+  brand4:
+    name: Bubimex
+  brand5:
+    name: Nutrivia
+  brand6:
+    name: Paradiso
+  brand7:
+    name: Carnilove

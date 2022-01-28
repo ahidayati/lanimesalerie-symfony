@@ -14,7 +14,7 @@ class Address
     private $id;
 
     #[ORM\Column(type: 'string', length: 255)]
-    private $addressDetail;
+    private $streetAddress;
 
     #[ORM\Column(type: 'string', length: 255)]
     private $city;
@@ -28,7 +28,7 @@ class Address
     #[ORM\Column(type: 'string', length: 50)]
     private $postCode;
 
-    #[ORM\OneToOne(inversedBy: 'address', targetEntity: User::class, cascade: ['persist', 'remove'])]
+    #[ORM\ManyToOne(targetEntity: User::class, inversedBy: 'addresses')]
     #[ORM\JoinColumn(nullable: false)]
     private $user;
 
@@ -37,14 +37,14 @@ class Address
         return $this->id;
     }
 
-    public function getAddressDetail(): ?string
+    public function getStreetAddress(): ?string
     {
-        return $this->addressDetail;
+        return $this->streetAddress;
     }
 
-    public function setAddressDetail(string $addressDetail): self
+    public function setStreetAddress(string $streetAddress): self
     {
-        $this->addressDetail = $addressDetail;
+        $this->streetAddress = $streetAddress;
 
         return $this;
     }
@@ -102,7 +102,7 @@ class Address
         return $this->user;
     }
 
-    public function setUser(User $user): self
+    public function setUser(?User $user): self
     {
         $this->user = $user;
 

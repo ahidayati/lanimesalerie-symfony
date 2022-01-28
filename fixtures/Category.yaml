@@ -1,0 +1,11 @@
+App\Entity\Category:
+  category1:
+    name: Chien
+  category2:
+    name: Chat
+  category3:
+    name: Oiseau
+  category4:
+    name: Poisson
+  category5:
+    name: Reptile

@@ -39,6 +39,9 @@ class Product
     #[ORM\OneToMany(mappedBy: 'product', targetEntity: Media::class)]
     private $media;
 
+    #[ORM\ManyToOne(targetEntity: Brand::class, inversedBy: 'products')]
+    private $brand;
+
     public function __construct()
     {
         $this->subcategory = new ArrayCollection();
@@ -172,6 +175,18 @@ class Product
                 $medium->setProduct(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getBrand(): ?Brand
+    {
+        return $this->brand;
+    }
+
+    public function setBrand(?Brand $brand): self
+    {
+        $this->brand = $brand;
 
         return $this;
     }

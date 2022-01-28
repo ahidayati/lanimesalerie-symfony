@@ -1,0 +1,9 @@
+App\Entity\User:
+  user{1..200}:
+    email: '<email()>'
+    password: <password()>
+    firstName: '<firstName()>'
+    lastName: '<lastName()>'
+    gender: '<randomElement(["m", "f", "o"])>'
+    birthDate: '75%? <dateTimeBetween("1945-01-01", "-18 years")>'
+    phone: '<e164PhoneNumber()>'

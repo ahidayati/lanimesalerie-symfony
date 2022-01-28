@@ -1,0 +1,8 @@
+App\Entity\Address:
+  address{1..200}:
+    streetAddress: '<streetAddress()>'
+    city: '<city()>'
+    region: '<region()>'
+    country: France
+    postCode: '<postcode()>'
+    user: '@user*'
