@@ -33,6 +33,7 @@ class Brand
     #[ORM\Column(type: 'integer')]
     private $id;
 
+    #[Assert\Length(max: 255)]
     #[Assert\NotBlank]
     #[ORM\Column(type: 'string', length: 255)]
     private $name;

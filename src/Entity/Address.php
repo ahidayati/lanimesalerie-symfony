@@ -16,22 +16,27 @@ class Address
     #[ORM\Column(type: 'integer')]
     private $id;
 
+    #[Assert\Length(max: 255)]
     #[Assert\NotBlank]
     #[ORM\Column(type: 'string', length: 255)]
     private $streetAddress;
 
+    #[Assert\Length(max: 255)]
     #[Assert\NotBlank]
     #[ORM\Column(type: 'string', length: 255)]
     private $city;
 
+    #[Assert\Length(max: 255)]
     #[Assert\NotBlank]
     #[ORM\Column(type: 'string', length: 255)]
     private $region;
 
+    #[Assert\Length(max: 255)]
     #[Assert\NotBlank]
     #[ORM\Column(type: 'string', length: 255)]
     private $country;
 
+    #[Assert\Length(max: 50)]
     #[Assert\NotBlank]
     #[ORM\Column(type: 'string', length: 50)]
     private $postCode;
