@@ -1,4 +1,15 @@
+parameters:
+  password: '$2y$13$/QisnU3Oxc5qHHsDg8z/POTdR2/HszWTposUviTwASrdmFY2LHyOe'
+
 App\Entity\User:
+  admin:
+    email: 'annisa123@mail.com'
+    password: '$password'
+    roles: ['ROLE_ADMIN']
+    firstName: 'Annisa'
+    lastName: 'Hidayati'
+    gender: 'f'
+
   user{1..200}:
     email: '<email()>'
     password: <password()>
